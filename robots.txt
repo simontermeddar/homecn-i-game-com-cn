@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://simontermeddar.github.io/homecn-i-game-com-cn/sitemap.xml
