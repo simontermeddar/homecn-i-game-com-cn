@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B体育 · 信息介绍与常见问题摘要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            background: #f4f6fa;
+            color: #1e2a3a;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 深色头图 Hero */
+        .hero {
+            background: linear-gradient(145deg, #0b1623 0%, #1b2a3e 100%);
+            padding: 5rem 2rem 4rem 2rem;
+            text-align: center;
+            color: #eef3fa;
+            border-bottom: 3px solid #3b6ea5;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: #79b8f3;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto 1.6rem auto;
+            font-size: 1.1rem;
+            color: #c3d5e8;
+        }
+
+        .hero .subnote {
+            font-size: 0.9rem;
+            color: #8fa8c0;
+            border-top: 1px dashed #2f4a66;
+            padding-top: 1.5rem;
+            margin-top: 1.8rem;
+            display: inline-block;
+        }
+
+        /* 浅色正文区容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+        }
+
+        /* 卡片区块 */
+        .card-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 2rem 1.8rem;
+            flex: 1 1 260px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: transform 0.1s ease;
+            border: 1px solid #e8edf2;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 20, 40, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #152433;
+            border-left: 4px solid #3b6ea5;
+            padding-left: 0.8rem;
+        }
+
+        .card p {
+            color: #2d3f54;
+            font-size: 0.98rem;
+        }
+
+        /* 说明区 — 对照与延伸 */
+        .explain-block {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem 2.5rem 2.2rem;
+            margin: 2rem 0 2.2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e4eaef;
+        }
+
+        .explain-block h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #0b1e30;
+        }
+
+        .explain-block p {
+            margin-bottom: 1rem;
+        }
+
+        .explain-block ul {
+            padding-left: 1.5rem;
+            margin: 1.2rem 0 0.8rem 0;
+            list-style-type: disc;
+        }
+
+        .explain-block li {
+            margin-bottom: 0.5rem;
+            color: #203548;
+        }
+
+        .inline-link {
+            color: #1a6eb5;
+            text-decoration: underline;
+            text-decoration-color: #b0cce6;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0a4a7a;
+            text-decoration-color: #1a6eb5;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem 2.2rem 2.2rem;
+            margin: 2rem 0 2.8rem 0;
+            border: 1px solid #dfe7ef;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #142b40;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eaf0f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #1e3c57;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #334a62;
+            font-size: 0.96rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #b3cde0;
+            margin-top: 0.2rem;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+        }
+
+        /* 底部链接区 */
+        .bottom-links {
+            text-align: center;
+            padding: 1.8rem 0 3.5rem 0;
+            border-top: 1px solid #d7e0e9;
+            margin-top: 2rem;
+        }
+
+        .bottom-links p {
+            color: #3e5670;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links a {
+            color: #1a6eb5;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .bottom-links a:hover {
+            color: #0c4a7a;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #6a7f96;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 3rem 1.2rem 2.8rem 1.2rem;
+            }
+
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .card-section {
+                gap: 1.2rem;
+            }
+
+            .explain-block,
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero 区 -->
+<section class="hero">
+    <h1>查资料 · 看对照 · <span>B体育</span></h1>
+    <p>一个专注于日常信息查询、功能对比与延伸阅读的平台参考页。以下内容基于公开信息整理，帮你快速了解特点与应用场景。</p>
+    <div class="subnote">基于公开资料整理 · 仅供参考</div>
+</section>
+
+<!-- 正文容器 -->
+<main class="container">
+
+    <!-- 优势区：卡片式特点 -->
+    <section class="card-section">
+        <div class="card">
+            <h3>日常查询</h3>
+            <p>模块分类清晰，方便快速检索所需条目。信息结构以实用为导向，减少多余步骤。</p>
+        </div>
+        <div class="card">
+            <h3>对照阅读</h3>
+            <p>支持并排比较、参数对照，适合需要横向参考的场景。记录差异与共性更直观。</p>
+        </div>
+        <div class="card">
+            <h3>延伸整理</h3>
+            <p>在基础信息之外补充相关条目、背景说明，适合进一步深挖或做笔记。</p>
+        </div>
+    </section>
+
+    <!-- 说明区：介绍与使用切入点 -->
+    <section class="explain-block">
+        <h2>从日常查询到延伸阅读</h2>
+        <p>在整理资料或需要快速查阅某个方向的基础信息时，很多人会先找一个内容集中、条目清晰的页面作为起点。<a href="https://h5-bsports.com" class="inline-link">B体育</a> 在这一需求上提供了分类展示和条目对照功能，尤其适合需要同时比较多个数据或说明的场景。</p>
+        <p>例如，当你需要对比不同模块下的规则、数值或定义时，页面布局支持横向查看，减少来回切换的负担。同时，每个条目下往往附带简短延伸说明，帮助理解上下文。</p>
+        <ul>
+            <li><strong>快速定位</strong> —— 通过明确的区块标题和卡片结构，减少查找时间。</li>
+            <li><strong>条目对照</strong> —— 适合参数对比、版本差异或者功能并列阅读。</li>
+            <li><strong>补充延伸</strong> —— 每个条目周围常附有相关备注或延伸方向，方便做进一步查阅。</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">如果你习惯在浏览时做笔记或整理要点，这样的结构也能帮你更自然地组织信息。</p>
+    </section>
+
+    <!-- FAQ 摘要区：三个常见问题 -->
+    <section class="faq-summary">
+        <h2>❓ 常见问题摘要</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">Q：页面的信息更新频率如何？</div>
+            <div class="faq-a">内容依据公开资料整理，不定期同步调整。如需最准确及时的信息，建议结合多个来源交叉确认。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q：适合移动端阅读吗？</div>
+            <div class="faq-a">页面采用响应式布局，在手机和平板上都能正常浏览。卡片和列表会自动适配屏幕宽度，阅读体验比较连贯。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q：能否直接复制或引用其中的内容？</div>
+            <div class="faq-a">页面内容仅供个人参考和学习。如需引用或转载，建议先核对原始来源，并遵守相关使用规范。</div>
+        </div>
+    </section>
+
+    <!-- 底部链接区（含必要链接） -->
+    <div class="bottom-links">
+        <p>更多信息与分类导航，可前往 <a href="https://h5-bsports.com">B体育</a> 直接查看。</p>
+        <p class="footer-note">本页为信息介绍摘要，所有内容仅供参考。具体功能以实际页面为准。</p>
+    </div>
+</main>
+
+</body>
+</html>
