@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JRS直播 · 站点介绍与使用说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+      background: #f4f9fc;
+      color: #1f2e3a;
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 1024px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0, 50, 60, 0.07);
+      overflow: hidden;
+      padding: 32px 28px 40px;
+    }
+
+    /* 蓝绿色点缀 palette */
+    .accent-bg {
+      background: #d0efe7;
+    }
+    .accent-text {
+      color: #1b7a6b;
+    }
+    .border-accent {
+      border-color: #a3d6cb;
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 36px 10px 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #0b4e44;
+      margin-bottom: 6px;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #3d6870;
+      border-top: 2px solid #b7ddd4;
+      display: inline-block;
+      padding-top: 10px;
+      margin-top: 4px;
+    }
+
+    /* 网格卡片布局 */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 28px 0 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 4px 12px rgba(0, 60, 60, 0.04);
+      border: 1px solid #d9eae7;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(23, 110, 100, 0.08);
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #115a50;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #c2e3db;
+      display: inline-block;
+    }
+    .card p, .card li {
+      font-size: 0.93rem;
+      color: #244a4a;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2c8d80;
+    }
+
+    .full-card {
+      grid-column: 1 / -1;
+    }
+
+    /* 提示与说明块 */
+    .notice-box {
+      background: #ecf6f3;
+      border-left: 5px solid #1e8b7b;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 28px 0 16px;
+    }
+    .notice-box p {
+      font-size: 0.95rem;
+      color: #1b4a44;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 22px 0 10px;
+    }
+    .faq-item {
+      flex: 1 1 220px;
+      background: #f8fcfb;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid #c4dbd5;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #0b5549;
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+    .faq-item span {
+      font-size: 0.85rem;
+      color: #2b5b55;
+    }
+
+    /* 链接样式 */
+    a {
+      color: #127a6a;
+      text-decoration: none;
+      border-bottom: 1px solid #89c2b8;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 500;
+    }
+    a:hover {
+      color: #06463b;
+      border-bottom-color: #06463b;
+    }
+    .btn-like {
+      display: inline-block;
+      background: #e4f3ef;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border-bottom: none;
+      margin: 0 2px;
+    }
+
+    /* 场景列表 */
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .scene-tag {
+      background: #deefe9;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #15584b;
+      border: 1px solid #b2d3ca;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      .page { padding: 20px 16px; }
+      .hero h1 { font-size: 1.8rem; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      .faq-item { flex: 1 1 100%; }
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #c8e3dc;
+      margin: 32px 0 10px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #4a7570;
+      margin-top: 28px;
+      border-top: 1px solid #d1e5df;
+      padding-top: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero -->
+    <div class="hero">
+      <h1>JRS直播 · 站点整理</h1>
+      <div class="sub">简洁 · 稳定 · 基于内容的说明页</div>
+    </div>
+
+    <!-- 摘要卡片 -->
+    <div class="grid">
+      <div class="card full-card">
+        <h3>站点摘要</h3>
+        <p style="margin-top: 6px;">
+          本页面向新用户介绍 <a href="https://chn-index-jrs.com">JRS直播</a> 的基本定位与使用场景。
+          该站点提供实时赛事内容聚合，涵盖多种体育项目的直播信号与信息整理。
+          以下从特点、适用场景、可信说明等角度进行梳理，帮助您快速了解服务轮廓。
+        </p>
+      </div>
+    </div>
+
+    <!-- 亮点 / 特点 -->
+    <div class="grid">
+      <div class="card">
+        <h3>主要特点</h3>
+        <ul>
+          <li>赛事覆盖面较广，常见球类及主流联赛均有收录</li>
+          <li>界面相对简洁，导航层级清晰，便于快速切换</li>
+          <li>提供多线路选择，可根据自身网络调整</li>
+          <li>无需注册即可浏览内容，降低使用门槛</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>使用建议</h3>
+        <ul>
+          <li>建议通过稳定Wi-Fi或4G/5G网络访问直播页</li>
+          <li>若某条线路卡顿，可尝试切换其他线路</li>
+          <li>部分赛事会在开赛前10–30分钟放出信号</li>
+          <li>浏览器推荐Chrome、Edge或Safari最新版</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 使用场景 -->
+    <div class="card" style="margin-bottom: 16px;">
+      <h3>常见使用场景</h3>
+      <div class="scene-grid">
+        <span class="scene-tag">⚽ 足球周末联赛</span>
+        <span class="scene-tag">🏀 篮球季后赛</span>
+        <span class="scene-tag">🎾 网球大满贯</span>
+        <span class="scene-tag">🏐 排球关键战</span>
+        <span class="scene-tag">🏓 乒乓球/羽毛球</span>
+        <span class="scene-tag">📱 移动端快速浏览</span>
+      </div>
+      <p style="margin-top: 14px; font-size: 0.9rem;">
+        以上为较常见的应用方向，实际内容以 <a href="https://chn-index-jrs.com">JRS直播</a> 站内当日列表为准。
+      </p>
+    </div>
+
+    <!-- 可信说明 + 提示 -->
+    <div class="notice-box">
+      <p><strong>可信但克制的说明</strong> · 
+      本页仅作内容介绍与使用参考。<a href="https://chn-index-jrs.com">JRS直播</a> 本身为第三方信息聚合站点，
+      不生产原始信号，所有内容均来自公开互联网。建议用户遵守当地法律法规，合理使用。
+      本站不存储任何视频文件，也不对内容做任何形式担保。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h3 style="font-weight: 500; font-size: 1rem; color: #0b5549; margin: 12px 0 8px;">常见问题摘要</h3>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>是否需要注册？</strong>
+        <span>目前大部分内容无需注册即可查看，部分互动功能可能需登录。</span>
+      </div>
+      <div class="faq-item">
+        <strong>画质与延迟</strong>
+        <span>取决于信号源及网络环境，通常提供多档清晰度选择。</span>
+      </div>
+      <div class="faq-item">
+        <strong>移动端适配</strong>
+        <span>页面针对手机屏幕做了自适应，可直接在浏览器中打开使用。</span>
+      </div>
+      <div class="faq-item">
+        <strong>链接可靠性</strong>
+        <span>直播链接会动态更新，建议以站内实时列表为准。</span>
+      </div>
+    </div>
+
+    <!-- 结尾句子 + 链接自然嵌入 -->
+    <div style="margin-top: 30px; background: #eaf7f2; padding: 14px 20px; border-radius: 20px;">
+      <p style="font-size: 0.95rem;">
+        如果你正在寻找一个赛事信息聚合类站点，可以前往 
+        <a href="https://chn-index-jrs.com">JRS直播</a> 
+        查看当日的完整比赛列表与信号选择。页面结构偏向实用，适合快速获取直播入口。
+        建议先熟悉界面布局，再根据个人偏好收藏常用页面。
+      </p>
+    </div>
+
+    <!-- 额外提示：合理使用 -->
+    <hr>
+    <div class="footer-note">
+      <p>内容仅为说明用途，不构成任何形式的推荐或保证。<br>
+      请根据自身需求与当地法规合理使用相关服务。</p>
+      <p style="margin-top: 6px; letter-spacing: 1px;">—— 整理于 2025 · 简洁说明页</p>
+    </div>
+  </div>
+</body>
+</html>
